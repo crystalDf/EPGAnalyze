@@ -40,7 +40,7 @@ def abridge_str_without_num(original_str):
 def format_function_list(function_list):
     for function in function_list:
         print(function.board_info.board + '\t' + function.role + '\t' +
-              function.bearers + '\t' + function.conns + '\t' +
+              function.conns + '\t' + function.bearers + '\t' +
               function.board_info.cpu + '\t' + function.board_info.memory +
               '\t' + function.ul_pks + '\t' + function.dl_pks + '\t' +
               function.status)
@@ -73,8 +73,7 @@ def analyze_node_status(filename):
 
             board_info_function_list = []
 
-            board_info = BoardInfo(board=board, cpu=cpu, memory=memory,
-                                   board_info_function_list=
+            board_info = BoardInfo(board, cpu, memory,
                                    board_info_function_list)
 
             while line.find('function:') == -1:
@@ -122,14 +121,13 @@ def analyze_node_status(filename):
                 if line.find('estimated-free-memory: ') != -1:
                     line = file_object.readline()
 
-                function = Function(board_info=board_info, role=role,
-                                    status=status, bearers=bearers,
-                                    conns=conns, ul_pks=ul_pks, dl_pks=dl_pks)
+                function = Function(board_info, role, status, bearers, conns,
+                                    ul_pks, dl_pks)
                 board_info_function_list.append(function)
                 function_list.append(function)
 
-                while line and line.find('function:') == -1 and \
-                                line.find('board-information') == -1:
+                while line and line.find('function:') == -1 \
+                        and line.find('board-information') == -1:
                     line = file_object.readline()
 
             board_info.board_info_function_list = board_info_function_list
