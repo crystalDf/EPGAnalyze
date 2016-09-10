@@ -1,0 +1,14 @@
+board		role	conns	bearers	cpu			memory					ul_pks	dl_pks	status
+gc-0/5/1	GSC						P 3%, A 0%	T 65828916, U 25549852					Administratively blocked
+gc-0/5/1	SSC		0		0		P 3%, A 0%	T 65828916, U 25549852					Administratively Blocked
+gc-0/7/1	PSC		0		0		P 3%, A 0%	T 65828916, U 26199084					Administratively blocked
+gc-0/7/1	SSC		0		0		P 3%, A 0%	T 65828916, U 26199084					Administratively Blocked
+gu-0/3/1	LPP						P 0%, A 0%	T 65828916, U 25676392	0		0		Ready
+gu-0/3/1	PPP				0		P 0%, A 0%	T 65828916, U 25676392	0		0		Ready
+gu-0/3/1	SPP				0		P 0%, A 0%	T 65828916, U 25676392	0		0		Ready
+gu-0/4/1	LPP						P 0%, A 0%	T 65828916, U 25674968	0		0		Ready
+gu-0/4/1	PPP				0		P 0%, A 0%	T 65828916, U 25674968	0		0		Ready
+gu-0/4/1	SPP				0		P 0%, A 0%	T 65828916, U 25674968	0		0		Ready
+gu-0/6/1	LPP						P 1%, A 0%	T 65828916, U 25676664	0		0		Ready
+gu-0/6/1	PPP				0		P 1%, A 0%	T 65828916, U 25676664	0		0		Ready
+gu-0/6/1	SPP				0		P 1%, A 0%	T 65828916, U 25676664	0		0		Ready

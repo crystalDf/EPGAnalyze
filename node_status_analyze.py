@@ -38,12 +38,19 @@ def abridge_str_without_num(original_str):
 
 
 def format_function_list(function_list):
-    for function in function_list:
-        print(function.board_info.board + '\t' + function.role + '\t' +
-              function.conns + '\t' + function.bearers + '\t' +
-              function.board_info.cpu + '\t' + function.board_info.memory +
-              '\t' + function.ul_pks + '\t' + function.dl_pks + '\t' +
-              function.status)
+    with open('node_status_analyze_result.txt', 'w') as file_object:
+        file_object.write(
+            'board' + '\t' + '\t' + 'role' + '\t' + 'conns' + '\t' +
+            'bearers' + '\t' + 'cpu' + '\t' + '\t' + '\t' + 'memory' + '\t' +
+            '\t' + '\t' + '\t' + '\t' + 'ul_pks' + '\t' + 'dl_pks' + '\t' +
+            'status' + '\n')
+        for function in function_list:
+            file_object.write(
+                function.board_info.board + '\t' + function.role + '\t' +
+                '\t' + function.conns + '\t' + '\t' + function.bearers +
+                '\t' + '\t' + function.board_info.cpu + '\t' +
+                function.board_info.memory + '\t' + function.ul_pks + '\t' +
+                '\t' + function.dl_pks + '\t' + '\t' + function.status + '\n')
 
 
 def analyze_node_status(filename):
