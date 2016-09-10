@@ -1,4 +1,5 @@
 import sys
+from prettytable import PrettyTable
 
 
 class BoardInfo:
@@ -39,18 +40,17 @@ def abridge_str_without_num(original_str):
 
 def format_function_list(function_list):
     with open('node_status_analyze_result.txt', 'w') as file_object:
-        file_object.write(
-            'board' + '\t' + '\t' + 'role' + '\t' + 'conns' + '\t' +
-            'bearers' + '\t' + 'cpu' + '\t' + '\t' + '\t' + 'memory' + '\t' +
-            '\t' + '\t' + '\t' + '\t' + 'ul_pks' + '\t' + 'dl_pks' + '\t' +
-            'status' + '\n')
+        headers = ['board', 'role', 'conns', 'bearers', 'cpu', 'memory',
+                   'ul_pks', 'dl_pks', 'status']
+        table = PrettyTable(headers)
         for function in function_list:
-            file_object.write(
-                function.board_info.board + '\t' + function.role + '\t' +
-                '\t' + function.conns + '\t' + '\t' + function.bearers +
-                '\t' + '\t' + function.board_info.cpu + '\t' +
-                function.board_info.memory + '\t' + function.ul_pks + '\t' +
-                '\t' + function.dl_pks + '\t' + '\t' + function.status + '\n')
+            row = [function.board_info.board, function.role, function.conns,
+                   function.bearers, function.board_info.cpu,
+                   function.board_info.memory, function.ul_pks,
+                   function.dl_pks, function.status]
+            table.add_row(row)
+
+        file_object.write(str(table))
 
 
 def analyze_node_status(filename):
